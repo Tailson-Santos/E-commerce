@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { fetchApi } from './assets/services/fetchAPI'
-import { Loading } from './assets/pages/Loading'
+import { Loading } from './assets/componentes/Loading'
+import { Header } from './assets/componentes/Header'
+
 
 
 function App() {
@@ -39,7 +41,7 @@ function App() {
 
   return (
     <div>
-    
+      <Header/>
      
 
     </div>
