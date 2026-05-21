@@ -1,16 +1,13 @@
-import logo from '../logo.JPG'
-import {Nav} from '../componentes/Nav'
-import {Filtro} from '../componentes/Filtro'
+import { Logo } from './Logo'
+import { Nav } from './Nav'
+import { Filtro } from './Filtro'
 
-export function Header(){
-    return(
-        <header className='flex justify-between items-center p-2 bg-[var(--color-secondary)]'>
-            <div>
-                <img src={logo} alt="logo-img" width={80}/>
-            </div>
-            <Filtro/>
-            <Nav/>
-            
-        </header>
-    )
+export function Header() {
+  return (
+    <header className='flex justify-between items-center p-2 bg-[var(--color-secondary)]'>
+      <Logo />
+      <Filtro className='' />
+      <Nav />
+    </header>
+  )
 }

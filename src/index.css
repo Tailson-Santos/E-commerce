@@ -3,10 +3,26 @@
 
 @import "tailwindcss";
 
+*{
+
+  box-sizing: border-box;
+
+}
+
 :root{
     --color-primary: #12122b;
     --color-secondary: #383845;
     --color-neutral: #5e5e5e;
     --color-muted: #848478;
     --color-light: #aaaa91;
+
+
+    
+  }
+
+  
+  input{
+    border: 1px solid white;
+    color: white;
+    
   }
