@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { fetchApi } from './assets/services/fetchApiProdutos'
 import { Loading } from './assets/componentes/Loading'
 import { Header } from './assets/componentes/Header'
+import { Conteudo } from './assets/componentes/Conteudo'
 
 
 
@@ -43,6 +44,7 @@ function App() {
   return (
     <div>
         <Header/>
+        <Conteudo produtos={produtos}/>
         
     </div>
   )
