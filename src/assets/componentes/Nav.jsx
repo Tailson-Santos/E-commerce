@@ -1,21 +1,68 @@
-export function Nav(){
-    return(
-        <nav className="flex gap-5 ">
-            <a href="">
-            <span class="material-symbols-outlined">
-                person
-            </span>
-            </a>
+import { useState } from 'react'
 
+export function Nav() {
 
-            <a href="">
-                <span class="material-symbols-outlined">
-                shopping_cart
-                </span>
+  const [aberto, setAberto] = useState(false)
 
-                <span className="bg-red-600 rounded-2xl text-white p-0.3">0</span>
-            </a>
+  return (
+    <nav className="relative">
 
-        </nav>
-    )
+      {/* BOTÃO HAMBÚRGUER */}
+      <button
+        onClick={() => setAberto(!aberto)}
+        className="md:hidden"
+      >
+        <span className="material-symbols-outlined text-3xl">
+          menu
+        </span>
+      </button>
+
+      {/* MENU DESKTOP */}
+      <div className="hidden md:flex gap-5">
+
+        <a href="">
+          <span className="material-symbols-outlined">
+            person
+          </span>
+        </a>
+
+        <a href="" className="relative">
+          <span className="material-symbols-outlined">
+            shopping_cart
+          </span>
+
+          <span className="absolute -top-2 -right-2 bg-red-600 rounded-full text-white text-xs px-1">
+            0
+          </span>
+        </a>
+
+      </div>
+
+      {/* MENU MOBILE */}
+      {
+        aberto && (
+          <div className="absolute right-0 top-12 flex flex-col bg-white shadow-lg p-4 rounded gap-4 md:hidden">
+
+<a href="">
+          <span className="material-symbols-outlined">
+            person
+          </span>
+        </a>
+
+        <a href="" className="relative">
+          <span className="material-symbols-outlined">
+            shopping_cart
+          </span>
+
+          <span className="absolute -top-2 -right-2 bg-red-600 rounded-full text-white text-xs px-1">
+            0
+          </span>
+        </a>
+
+          </div>
+        )
+      }
+
+    </nav>
+  )
 }

@@ -1,4 +1,4 @@
-import logo from '../logo.JPG'
+import logo from '../logo-removebg-preview.png'
 
 export function Logo() {
   return (

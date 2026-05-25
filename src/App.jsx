@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fetchApi } from './assets/services/fetchAPI'
+import { fetchApi } from './assets/services/fetchApiProdutos'
 import { Loading } from './assets/componentes/Loading'
 import { Header } from './assets/componentes/Header'
 
@@ -9,6 +9,7 @@ function App() {
 
   const [produtos, setProduto] = useState([])
   const [loading, setLoading] = useState(true)
+ 
 
   useEffect(() => {
 
