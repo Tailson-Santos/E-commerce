@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { Link } from "react-router-dom"
 
-export function Nav() {
+export function Nav({ carrinho }) {
 
   const [aberto, setAberto] = useState(false)
 
@@ -18,46 +19,97 @@ export function Nav() {
       </button>
 
       {/* MENU DESKTOP */}
-      <div className="hidden md:flex gap-5">
+      <div className="hidden md:flex gap-5 items-center">
 
-        <a href="">
+        <Link to="/">
           <span className="material-symbols-outlined">
-            person
+            home
           </span>
-        </a>
-
-        <a href="" className="relative">
+        </Link>
+        
+        <Link
+          to="/carrinho"
+          className="relative"
+        >
           <span className="material-symbols-outlined">
             shopping_cart
           </span>
 
-          <span className="absolute -top-2 -right-2 bg-red-600 rounded-full text-white text-xs px-1">
-            0
+          <span className="
+            absolute
+            -top-2
+            -right-2
+            bg-red-600
+            rounded-full
+            text-white
+            text-xs
+            min-w-[18px]
+            h-[18px]
+            flex
+            items-center
+            justify-center
+            px-1
+          ">
+            {carrinho.length}
           </span>
-        </a>
+        </Link>
 
       </div>
 
       {/* MENU MOBILE */}
       {
         aberto && (
-          <div className="absolute right-0 top-12 flex flex-col bg-white shadow-lg p-4 rounded gap-4 md:hidden">
+          <div className="
+            absolute
+            right-0
+            top-12
+            flex
+            flex-col
+            bg-white
+            shadow-lg
+            p-4
+            rounded
+            gap-4
+            md:hidden
+            z-50
+          ">
 
-<a href="">
-          <span className="material-symbols-outlined">
-            person
-          </span>
-        </a>
+            <Link
+              to="/"
+              onClick={() => setAberto(false)}
+            >
+              <span className="material-symbols-outlined">
+                person
+              </span>
+            </Link>
 
-        <a href="" className="relative">
-          <span className="material-symbols-outlined">
-            shopping_cart
-          </span>
+            <Link
+              to="/carrinho"
+              className="relative"
+              onClick={() => setAberto(false)}
+            >
+              <span className="material-symbols-outlined">
+                shopping_cart
+              </span>
 
-          <span className="absolute -top-2 -right-2 bg-red-600 rounded-full text-white text-xs px-1">
-            0
-          </span>
-        </a>
+              <span className="
+                absolute
+                -top-2
+                -right-2
+                bg-red-600
+                rounded-full
+                text-white
+                text-xs
+                min-w-[18px]
+                h-[18px]
+                flex
+                items-center
+                justify-center
+                px-1
+              ">
+                {carrinho.length}
+              </span>
+            </Link>
 
           </div>
         )

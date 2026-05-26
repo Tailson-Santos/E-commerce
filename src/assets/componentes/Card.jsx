@@ -1,4 +1,4 @@
-export function Card({ produto }) {
+export function Card({ produto ,adicionarCarrinho}) {
     const {
         title: nome,
         price: preco,
@@ -46,7 +46,7 @@ export function Card({ produto }) {
                     R$ {preco}
                 </p>
 
-                <button className="
+                <button onClick={() => adicionarCarrinho(produto)} className="
                     bg-black
                     text-white
                     p-2
@@ -54,7 +54,14 @@ export function Card({ produto }) {
                     hover:bg-gray-800
                     transition
                 ">
+                    
                     Comprar
+                </button>
+                <button>
+
+                <span class="material-symbols-outlined">
+shopping_cart_checkout
+</span>
                 </button>
             </div>
         </div>
