@@ -1,6 +1,6 @@
 import { Card } from "./Card"
 
-export function ListaProdutos({ produtos,adicionarCarrinho  }) {
+export function ListaProdutos({ produtos,adicionarCarrinho,removerCarrinho  }) {
     return (
         <div className="
             grid
@@ -16,6 +16,7 @@ export function ListaProdutos({ produtos,adicionarCarrinho  }) {
                     key={produto.id}
                     produto={produto}
                     adicionarCarrinho={adicionarCarrinho}
+                    removerCarrinho={removerCarrinho}
                 />
             ))}
         </div>

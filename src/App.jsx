@@ -4,7 +4,6 @@ import { Loading } from './assets/componentes/Loading'
 import { Header } from './assets/componentes/Header'
 import { Conteudo } from './assets/componentes/Conteudo'
 import { Routes, Route } from "react-router-dom"
-
 import { Home } from "./assets/pages/Home"
 import { Carrinho } from './assets/pages/Carrinho'
 
@@ -14,9 +13,35 @@ function App() {
   const [produtos, setProduto] = useState([])
   const [loading, setLoading] = useState(true)
   const [carrinho, setCarrinho] = useState([])
+
   function adicionarCarrinho(produto) {
-    setCarrinho((prev) => [...prev, produto])
-}
+
+    const produtoExiste = carrinho.find((item)=> item.id === produto.id);
+
+    if(produtoExiste){
+      const novoCarrinho = carrinho.map((item)=>{
+        if(item.id === produto.id){
+          return {
+            ...item,
+            quantidade: item.quantidade + 1
+          }
+        }
+        return item
+
+      })
+      setCarrinho(novoCarrinho)
+    }else{
+      setCarrinho((prev)=>[
+        ...prev,
+        {...produto,quantidade:1}
+      ])
+    }
+  }
+
+  function removerCarrinho(id){
+    const novaLista = carrinho.filter((produto)=>produto.id !== id)
+    setCarrinho(novaLista)
+  }
 
 
   useEffect(() => {
@@ -61,6 +86,7 @@ function App() {
             <Home
               produtos={produtos}
               adicionarCarrinho={adicionarCarrinho}
+              removerCarrinho={removerCarrinho}
             />
           }
         />
@@ -68,7 +94,8 @@ function App() {
         <Route
           path="/carrinho"
           element={
-            <Carrinho carrinho={carrinho} />
+            <Carrinho carrinho={carrinho}
+            removerCarrinho={removerCarrinho} />
           }
         />
   

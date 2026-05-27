@@ -4,6 +4,9 @@ import { Link } from "react-router-dom"
 export function Nav({ carrinho }) {
 
   const [aberto, setAberto] = useState(false)
+  const quantidadeTotal = carrinho.reduce((acc,item)=>{
+      return acc += item.quantidade
+  },0)
 
   return (
     <nav className="relative">
@@ -50,7 +53,7 @@ export function Nav({ carrinho }) {
             justify-center
             px-1
           ">
-            {carrinho.length}
+            {quantidadeTotal}
           </span>
         </Link>
 

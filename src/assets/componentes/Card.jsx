@@ -59,9 +59,9 @@ export function Card({ produto ,adicionarCarrinho}) {
                 </button>
                 <button>
 
-                <span class="material-symbols-outlined">
-shopping_cart_checkout
-</span>
+                    <span class="material-symbols-outlined">
+    shopping_cart_checkout
+    </span>
                 </button>
             </div>
         </div>

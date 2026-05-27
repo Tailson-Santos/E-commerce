@@ -1,7 +1,7 @@
-export function Carrinho({ carrinho }) {
+export function Carrinho({ carrinho, removerCarrinho }) {
 
     const total = carrinho.reduce((acc, item) => {
-        return acc + item.price
+        return acc + (item.price * item.quantidade)
     }, 0)
 
     return (
@@ -25,24 +25,58 @@ export function Carrinho({ carrinho }) {
                             flex
                             gap-4
                             items-center
+                            justify-between
                         "
                     >
 
-                        <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-20 h-20 object-contain"
-                        />
+                        <div className="flex gap-4 items-center">
 
-                        <div>
-                            <p className="font-bold">
-                                {item.title}
-                            </p>
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-20 h-20 object-contain"
+                            />
 
-                            <p className="text-green-600 font-bold">
-                                R$ {item.price}
-                            </p>
+                            <div>
+
+                                <p className="font-bold">
+                                    {item.title}
+                                </p>
+
+                                <p className="text-green-600 font-bold">
+                                    R$ {item.price}
+                                </p>
+
+                                <p className="text-sm text-gray-500">
+                                    Quantidade: {item.quantidade}
+                                </p>
+
+                                <p className="font-semibold">
+                                    Subtotal:
+                                    {" "}
+                                    R$
+                                    {" "}
+                                    {(item.price * item.quantidade).toFixed(2)}
+                                </p>
+
+                            </div>
+
                         </div>
+
+                        <button
+                            onClick={() => removerCarrinho(item.id)}
+                            className="
+                                bg-red-600
+                                text-white
+                                px-3
+                                py-1
+                                rounded
+                                hover:bg-red-700
+                                transition
+                            "
+                        >
+                            X
+                        </button>
 
                     </div>
 
