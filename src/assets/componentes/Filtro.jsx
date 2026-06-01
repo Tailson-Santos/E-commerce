@@ -1,4 +1,4 @@
-export function Filtro({className}) {
+export function Filtro({className,setPesquisa,pesquisa}) {
     return (
         <div className={`relative w-64 ${className}`}>
         
@@ -6,8 +6,10 @@ export function Filtro({className}) {
           type="text"
           name="filtro"
           id="filtro"
+          value={pesquisa}
           placeholder="Filtro de Pesquisa"
           className="w-full border rounded-lg py-2 pl-4 pr-10 outline-none text-[19px]"
+          onChange={(e)=>setPesquisa(e.target.value)}
         />
   
         <button className="hover:cursor-pointer">

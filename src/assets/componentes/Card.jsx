@@ -1,4 +1,4 @@
-export function Card({ produto ,adicionarCarrinho}) {
+export function Card({ produto, adicionarCarrinho }) {
     const {
         title: nome,
         price: preco,
@@ -8,19 +8,20 @@ export function Card({ produto ,adicionarCarrinho}) {
     } = produto
 
     return (
-        <div className="
-            bg-white
-            rounded-xl
-            shadow-md
-            p-4
-            flex
-            flex-col
-            gap-3
-            hover:scale-105
-            transition
-            duration-300
-        ">
-            
+        <div
+            className="
+                bg-white
+                rounded-xl
+                shadow-md
+                p-4
+                flex
+                flex-col
+                gap-3
+                hover:scale-105
+                transition
+                duration-300
+            "
+        >
             <div className="flex justify-center">
                 <img
                     src={img}
@@ -29,7 +30,7 @@ export function Card({ produto ,adicionarCarrinho}) {
                 />
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 flex-1">
                 <h2 className="font-bold text-lg line-clamp-1">
                     {nome}
                 </h2>
@@ -46,23 +47,45 @@ export function Card({ produto ,adicionarCarrinho}) {
                     R$ {preco}
                 </p>
 
-                <button onClick={() => adicionarCarrinho(produto)} className="
-                    bg-black
-                    text-white
-                    p-2
-                    rounded-lg
-                    hover:bg-gray-800
-                    transition
-                ">
-                    
-                    Comprar
-                </button>
-                <button>
+                <div className="flex gap-1 mt-auto">
+                    <button
+                        className="
+                            flex-1
+                            bg-green-700
+                            text-white
+                            p-2
+                            rounded-lg
+                            hover:bg-green-800
+                            transition
+                            font-medium
+                            cursor-pointer
+                        "
+                    >
+                        Comprar
+                    </button>
 
-                    <span class="material-symbols-outlined">
-    shopping_cart_checkout
-    </span>
-                </button>
+                    <button
+                        onClick={() => adicionarCarrinho(produto)}
+                        className="
+                            flex
+                            items-center
+                            justify-center
+                            w-10
+                            h-12
+                            rounded-lg
+                            bg-blue-600
+                            text-white
+                            hover:bg-blue-700
+                            transition
+                            cursor-pointer
+                        "
+                        title="Adicionar ao carrinho"
+                    >
+                        <span className="material-symbols-outlined">
+                            shopping_cart_checkout
+                        </span>
+                    </button>
+                </div>
             </div>
         </div>
     )

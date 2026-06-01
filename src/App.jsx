@@ -13,6 +13,15 @@ function App() {
   const [produtos, setProduto] = useState([])
   const [loading, setLoading] = useState(true)
   const [carrinho, setCarrinho] = useState([])
+  const [pesquisa,setPesquisa] = useState("");
+
+  const listaFiltrada = produtos.filter((item) => {
+    return item.title?.trim().toLowerCase().includes(
+      pesquisa.toLowerCase()
+    )
+  })
+  
+  
 
   function adicionarCarrinho(produto) {
 
@@ -43,7 +52,7 @@ function App() {
     setCarrinho(novaLista)
   }
 
-
+  
   useEffect(() => {
 
     async function carregarProdutos() {
@@ -72,11 +81,11 @@ function App() {
   if (loading) {
     return <Loading />
   }
-
+  console.log(listaFiltrada)
   return (
     <div>
   
-      <Header carrinho={carrinho} />
+      <Header carrinho={carrinho} setPesquisa={setPesquisa} pesquisa={pesquisa} />
   
       <Routes>
   
@@ -84,7 +93,7 @@ function App() {
           path="/"
           element={
             <Home
-              produtos={produtos}
+              produtos={listaFiltrada}
               adicionarCarrinho={adicionarCarrinho}
               removerCarrinho={removerCarrinho}
             />
