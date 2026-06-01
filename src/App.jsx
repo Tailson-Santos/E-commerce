@@ -6,6 +6,7 @@ import { Conteudo } from './assets/componentes/Conteudo'
 import { Routes, Route } from "react-router-dom"
 import { Home } from "./assets/pages/Home"
 import { Carrinho } from './assets/pages/Carrinho'
+import{Login} from "./assets/pages/Login"
 
 
 function App() {
@@ -86,6 +87,7 @@ function App() {
     <div>
   
       <Header carrinho={carrinho} setPesquisa={setPesquisa} pesquisa={pesquisa} />
+      <Login/>
   
       <Routes>
   
