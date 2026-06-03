@@ -4,7 +4,7 @@ import { Filtro } from './Filtro'
 
 export function Header({carrinho,setPesquisa,pesquisa}) {
   return (
-    <header className='fixed w-full flex justify-between items-center p-2 bg-[var(--color-muted)]'>
+    <header className='sticky top-0 w-full flex justify-between items-center p-2 bg-[var(--color-muted)]'>
       <Logo />
       <Filtro className='' setPesquisa={setPesquisa} pesquisa={pesquisa}/>
       <Nav  carrinho={carrinho}/>
