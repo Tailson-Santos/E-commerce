@@ -1,4 +1,5 @@
 import { ListaProdutos } from "./ListaProdutos"
+
 export function Conteudo({produtos,adicionarCarrinho,carrinho,removerCarrinho}){
     return(
         <main className="bg-[var(--color-light)]">

@@ -17,9 +17,9 @@ export function Card({ produto, adicionarCarrinho }) {
                 flex
                 flex-col
                 gap-3
-                hover:scale-105
                 transition
                 duration-300
+                hover:cursor-pointer
             "
         >
             <div className="flex justify-center">

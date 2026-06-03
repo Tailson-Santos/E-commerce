@@ -15,6 +15,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [carrinho, setCarrinho] = useState([])
   const [pesquisa,setPesquisa] = useState("");
+  
 
   const listaFiltrada = produtos.filter((item) => {
     return item.title?.trim().toLowerCase().includes(
@@ -86,11 +87,15 @@ function App() {
   return (
     <div>
   
-      <Header carrinho={carrinho} setPesquisa={setPesquisa} pesquisa={pesquisa} />
-      <Login/>
+  <Header
+        carrinho={carrinho}
+        setPesquisa={setPesquisa}
+        pesquisa={pesquisa}
+      />
+      
+     
   
       <Routes>
-  
         <Route
           path="/"
           element={
@@ -108,6 +113,11 @@ function App() {
             <Carrinho carrinho={carrinho}
             removerCarrinho={removerCarrinho} />
           }
+        />
+
+        <Route
+          path="/login"
+          element={<Login/>}
         />
   
       </Routes>
