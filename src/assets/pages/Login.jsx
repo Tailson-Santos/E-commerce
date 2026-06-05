@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import videoBanner from "../banner.mp4";
+
 
 export function Login() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
-
+        
       {/* Vídeo - escondido no mobile */}
       <div className="hidden md:block md:w-1/2">
         <video
@@ -31,6 +33,16 @@ export function Login() {
           bg-[var(--color-light)]
         "
       >
+
+
+
+
+
+        
+
+
+
+
         <h1 className="text-3xl font-bold mb-5">
           Login
         </h1>
