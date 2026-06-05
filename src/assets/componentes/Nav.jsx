@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../App";
 
-export function Nav({ carrinho }) {
+export function Nav() {
   const [aberto, setAberto] = useState(false);
+
+  const { carrinho } = useContext(AppContext);
 
   const quantidadeTotal = carrinho.reduce((acc, item) => {
     return acc + item.quantidade;
@@ -10,7 +13,6 @@ export function Nav({ carrinho }) {
 
   return (
     <nav className="relative">
-
       {/* BOTÃO HAMBÚRGUER */}
       <button
         onClick={() => setAberto(!aberto)}
@@ -23,7 +25,6 @@ export function Nav({ carrinho }) {
 
       {/* MENU DESKTOP */}
       <div className="hidden md:flex gap-5 items-center">
-
         <Link to="/login">
           <span className="material-symbols-outlined">
             person
@@ -64,7 +65,6 @@ export function Nav({ carrinho }) {
             {quantidadeTotal}
           </span>
         </Link>
-
       </div>
 
       {/* MENU MOBILE */}

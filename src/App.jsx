@@ -1,16 +1,14 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import { fetchApi } from "./assets/services/fetchApiProdutos";
 import { Loading } from "./assets/componentes/Loading";
-import { Routes, Route } from "react-router-dom";
 
 import { Home } from "./assets/pages/Home";
 import { Carrinho } from "./assets/pages/Carrinho";
 import { Login } from "./assets/pages/Login";
 
-
-const AppContext = createContext();
-
+export const AppContext = createContext();
 
 function App() {
   const [produtos, setProduto] = useState([]);
@@ -81,36 +79,22 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Home
-            produtos={listaFiltrada}
-            adicionarCarrinho={adicionarCarrinho}
-            removerCarrinho={removerCarrinho}
-            carrinho={carrinho}
-            pesquisa={pesquisa}
-            setPesquisa={setPesquisa}
-          />
-        }
-      />
-
-      <Route
-        path="/carrinho"
-        element={
-          <Carrinho
-            carrinho={carrinho}
-            removerCarrinho={removerCarrinho}
-          />
-        }
-      />
-
-      <Route
-        path="/login"
-        element={<Login />}
-      />
-    </Routes>
+    <AppContext.Provider
+      value={{
+        produtos: listaFiltrada,
+        carrinho,
+        pesquisa,
+        setPesquisa,
+        adicionarCarrinho,
+        removerCarrinho,
+      }}
+    >
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/carrinho" element={<Carrinho />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </AppContext.Provider>
   );
 }
 

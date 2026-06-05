@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import videoBanner from "../banner.mp4";
 
-
 export function Login() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
-        
-      {/* Vídeo - escondido no mobile */}
+
+      {/* Vídeo */}
       <div className="hidden md:block md:w-1/2">
         <video
           src={videoBanner}
@@ -33,16 +32,6 @@ export function Login() {
           bg-[var(--color-light)]
         "
       >
-
-
-
-
-
-        
-
-
-
-
         <h1 className="text-3xl font-bold mb-5">
           Login
         </h1>
@@ -105,8 +94,8 @@ export function Login() {
           ou
         </span>
 
-        <button
-          type="button"
+        <Link
+          to="/cadastro"
           className="
             w-full
             max-w-sm
@@ -118,10 +107,11 @@ export function Login() {
             hover:bg-green-700
             hover:text-white
             transition
+            text-center
           "
         >
           Cadastrar
-        </button>
+        </Link>
       </form>
     </div>
   );
