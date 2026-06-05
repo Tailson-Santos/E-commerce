@@ -11,7 +11,7 @@ export function Carrinho() {
   }, 0);
 
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen">
     <Header/>
       <h1 className="text-3xl font-bold mb-5">
         Meu Carrinho

@@ -38,7 +38,7 @@ export function DetalheProduto() {
     <div className="min-h-screen bg-gray-100">
       <Header />
 
-      <div className="max-w-6xl mx-auto px-5 py-10">
+      <div className="max-w-5xl mx-auto px-1 py-1">
 
         {/* Botão Voltar */}
         <button
@@ -75,7 +75,7 @@ export function DetalheProduto() {
             grid
             md:grid-cols-2
             gap-10
-            p-8
+            p-6
           "
         >
           {/* Imagem */}
