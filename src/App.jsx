@@ -1,12 +1,17 @@
 import { createContext, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
+import { DetalheProduto } from "./assets/pages/DetalheProduto";
+
 import { fetchApi } from "./assets/services/fetchApiProdutos";
 import { Loading } from "./assets/componentes/Loading";
 
 import { Home } from "./assets/pages/Home";
 import { Carrinho } from "./assets/pages/Carrinho";
 import { Login } from "./assets/pages/Login";
+
+import { Footer } from "./assets/componentes/Footer";
+
 
 export const AppContext = createContext();
 
@@ -90,10 +95,13 @@ function App() {
       }}
     >
       <Routes>
+        <Route path="/produto/:id" element={<DetalheProduto />}/>
         <Route path="/" element={<Home />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+
+      <Footer/>
     </AppContext.Provider>
   );
 }
