@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import videoBanner from "../banner.mp4";
 import { Banner } from "../componentes/Banner";
 
-export function Login() {
+
+export function Cadastro() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
-      <Banner/>
       
+      <Banner/>
 
       {/* Formulário */}
       <form
@@ -23,10 +23,28 @@ export function Login() {
           bg-[var(--color-light)]
         "
       >
-        
         <h1 className="text-3xl font-bold mb-5">
-          Login
+          Cadastro
         </h1>
+
+        <div className="flex flex-col w-full max-w-sm">
+          <label htmlFor="usuario" className="mb-1">
+            Usuário
+          </label>
+
+          <input
+            type="text"
+            id="usuario"
+            placeholder="Digite seu nome"
+            className="
+              border
+              p-3
+              rounded-lg
+              outline-none
+              focus:border-green-600
+            "
+          />
+        </div>
 
         <div className="flex flex-col w-full max-w-sm">
           <label htmlFor="login" className="mb-1">
@@ -79,15 +97,15 @@ export function Login() {
             transition
           "
         >
-          Entrar
+          Cadastrar
         </button>
 
         <span className="text-gray-700">
-          ou
+          Já possui uma conta?
         </span>
 
         <Link
-          to="/cadastro"
+          to="/login"
           className="
             w-full
             max-w-sm
@@ -102,9 +120,10 @@ export function Login() {
             text-center
           "
         >
-          Cadastrar
+          Fazer Login
         </Link>
       </form>
+      
     </div>
   );
 }

@@ -11,6 +11,7 @@ import { Carrinho } from "./assets/pages/Carrinho";
 import { Login } from "./assets/pages/Login";
 
 import { Footer } from "./assets/componentes/Footer";
+import { Cadastro } from "./assets/pages/Cadastro";
 
 
 export const AppContext = createContext();
@@ -95,8 +96,9 @@ function App() {
       }}
     >
       <Routes>
-        <Route path="/produto/:id" element={<DetalheProduto />}/>
         <Route path="/" element={<Home />} />
+        <Route path="/cadastro" element={<Cadastro/>}/>
+        <Route path="/produto/:id" element={<DetalheProduto />}/>
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
       </Routes>
