@@ -1,0 +1,30 @@
+{
+  "usuarios": [
+    {
+      "login": "tailson",
+      "senha": "1234",
+      "id": "Vvh-gUy-aSc"
+    },
+    {
+      "login": "testando",
+      "senha": "123456",
+      "id": "r0GEtj7Uu2A"
+    },
+    {
+      "login": "testando",
+      "senha": "123456",
+      "id": "srchq57IHfU"
+    },
+    {
+      "login": "",
+      "senha": "",
+      "id": "62OL3mJWme0"
+    },
+    {
+      "login": "",
+      "senha": "",
+      "id": "SgSCucSrP0Y"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

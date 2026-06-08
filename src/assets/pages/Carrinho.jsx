@@ -11,7 +11,7 @@ export function Carrinho() {
   }, 0);
 
   return (
-    <div className="h-min-screen">
+    <div className="min-h-[80vh]">
     <Header/>
       <h1 className="text-3xl font-bold mb-5">
         Meu Carrinho

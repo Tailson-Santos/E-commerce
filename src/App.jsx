@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
+import { postUsers, getUsers } from "./assets/services/CRUD";
+
 import { DetalheProduto } from "./assets/pages/DetalheProduto";
 
 import { fetchApi } from "./assets/services/fetchApiProdutos";
@@ -93,6 +95,8 @@ function App() {
         setPesquisa,
         adicionarCarrinho,
         removerCarrinho,
+        postUsers,
+        getUsers,
       }}
     >
       <Routes>
