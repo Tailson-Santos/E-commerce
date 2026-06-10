@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 
 import { postUsers, getUsers } from "./assets/services/CRUD";
 
+import{ScrollToTop} from "./assets/componentes/ScrollToTop"
+
 import { DetalheProduto } from "./assets/pages/DetalheProduto";
 
 import { fetchApi } from "./assets/services/fetchApiProdutos";
@@ -23,6 +25,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [carrinho, setCarrinho] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
+
 
   const listaFiltrada = produtos.filter((item) =>
     item.title?.trim().toLowerCase().includes(
@@ -99,6 +102,8 @@ function App() {
         getUsers,
       }}
     >
+      <ScrollToTop />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cadastro" element={<Cadastro/>}/>

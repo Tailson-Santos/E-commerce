@@ -5,7 +5,7 @@ import { AppContext } from "../../App";
 export function Nav() {
   const [aberto, setAberto] = useState(false);
 
-  const { carrinho } = useContext(AppContext);
+  const { carrinho,scrolltoTop} = useContext(AppContext);
 
   const quantidadeTotal = carrinho.reduce((acc, item) => {
     return acc + item.quantidade;
@@ -13,6 +13,7 @@ export function Nav() {
 
   return (
     <nav className="relative">
+      
       {/* BOTÃO HAMBÚRGUER */}
       <button
         onClick={() => setAberto(!aberto)}
@@ -134,6 +135,7 @@ export function Nav() {
           </Link>
         </div>
       )}
+      
     </nav>
   );
 }

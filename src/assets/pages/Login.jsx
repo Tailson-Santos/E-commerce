@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import { Banner } from "../componentes/Banner";
 
 export function Login() {
-  const usuarioEncontrado = usuario.find(
-    (user)=> user.nome === form.nome && user.senha === form.senha
-    )
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       <Banner/>
