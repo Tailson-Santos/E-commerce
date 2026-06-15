@@ -1,16 +1,97 @@
-# React + Vite
+# E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto de e-commerce desenvolvido com React, Vite e Tailwind CSS. A aplicacao simula uma loja virtual com listagem de produtos, busca, detalhes do produto, carrinho de compras, calculo de frete por CEP e telas de login/cadastro.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Listagem de produtos consumidos da Fake Store API
+- Busca de produtos por nome
+- Pagina de detalhes para cada produto
+- Adicao de produtos ao carrinho
+- Controle de quantidade no carrinho
+- Calculo do total da compra
+- Consulta de endereco por CEP usando a API ViaCEP
+- Telas de login e cadastro
+- Menu responsivo para dispositivos moveis
+- Interface estilizada com Tailwind CSS
 
-## React Compiler
+## Tecnologias utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- React Router DOM
+- Context API
+- Fake Store API
+- ViaCEP API
+- JSON Server
 
-## Expanding the ESLint configuration
+## Como executar o projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clone o repositorio:
+
+```bash
+git clone https://github.com/Tailson-Santos/E-commerce.git
+```
+
+Acesse a pasta do projeto:
+
+```bash
+cd E-commerce
+```
+
+Instale as dependencias:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Para usar o cadastro de usuarios com JSON Server, execute em outro terminal:
+
+```bash
+npx json-server db.json --port 3001
+```
+
+## Estrutura do projeto
+
+```text
+src/
+  app/
+    providers/
+    App.jsx
+  features/
+    autenticacao/
+    carrinho/
+    frete/
+    produtos/
+  shared/
+    components/
+  assets/
+  main.jsx
+  index.css
+```
+
+## Aprendizados
+
+Durante o desenvolvimento deste projeto, foram praticados conceitos como componentizacao, gerenciamento de estado com Context API, consumo de APIs externas, rotas com React Router, manipulacao de formularios e criacao de interfaces responsivas com Tailwind CSS.
+
+## Melhorias futuras
+
+- Implementar autenticacao completa no login
+- Persistir o carrinho no localStorage
+- Melhorar a validacao dos formularios
+- Adicionar filtro funcional por categoria
+- Criar mensagens de sucesso e erro para o usuario
+- Adicionar testes automatizados
+- Fazer deploy da aplicacao
+
+## Autor
+
+Desenvolvido por Tailson Santos.
