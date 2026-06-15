@@ -1,4 +1,7 @@
 import { useContext } from "react";
+
+
+
 import {
   useParams,
   useNavigate,
@@ -119,7 +122,7 @@ export function DetalheProduto() {
             </p>
 
             <div className="border-y py-5">
-              <p className="text-5xl font-bold text-green-600">
+            <p className="text-5xl font-bold text-green-600">
                 R$ {produto.price}
               </p>
             </div>

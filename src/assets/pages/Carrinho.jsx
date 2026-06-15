@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../../App";
 import {Header} from "../componentes/Header"
+import {BuscarCep} from "../componentes/BuscarCep"
 
 export function Carrinho() {
   const { carrinho, removerCarrinho } =
@@ -77,10 +78,33 @@ export function Carrinho() {
           </div>
         ))}
       </div>
-
-      <div className="mt-5 text-2xl font-bold">
-        Total: R$ {total.toFixed(2)}
-      </div>
+          
+          <div className="flex justify-between">
+            <div className="m-2 mt-5 text-2xl font-bold">
+            Total: R$ {total.toFixed(2)}      
+          </div>
+            <div>
+            <button className="
+            m-2
+            flex-1
+            bg-green-700
+            text-white
+            p-2
+            rounded-lg
+            hover:bg-green-800
+            transition
+            font-medium
+            cursor-pointer
+          "> Finalizar Compra</button>
+            </div>
+          </div>
+        
+        <div className="flex">
+           <BuscarCep/>
+        </div>
+  
+        <div>     
+      </div>     
     </div>
   );
 }
