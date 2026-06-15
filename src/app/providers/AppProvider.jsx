@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { getUsers, postUsers } from "../../features/autenticacao/services/CRUD";
+import {
+  getUsers,
+  postUsers,
+} from "../../features/autenticacao/services/CRUD";
 import { fetchApi } from "../../features/produtos/services/fetchApiProdutos";
 import { Loading } from "../../shared/components/Loading";
 import { AppContext } from "./AppContext";
@@ -8,15 +11,42 @@ import { AppContext } from "./AppContext";
 export function AppProvider({ children }) {
   const [produtos, setProduto] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [carrinho, setCarrinho] = useState([]);
-  const [pesquisa, setPesquisa] = useState("");
 
-  const listaFiltrada = produtos.filter((item) =>
-    item.title?.trim().toLowerCase().includes(pesquisa.toLowerCase())
-  );
+  const [carrinho, setCarrinho] = useState(() => {
+    const produtosSalvos = localStorage.getItem("produtosSalvos");
+
+    return produtosSalvos
+      ? JSON.parse(produtosSalvos)
+      : [];
+  });
+
+  const [pesquisa, setPesquisa] = useState("");
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
+
+  const categorias = produtos.reduce((acc, produto) => {
+    if (!acc.includes(produto.category)) {
+      acc.push(produto.category);
+    }
+
+    return acc;
+  }, []);
+
+  const listaFiltrada = produtos.filter((item) => {
+    const correspondePesquisa = item.title
+      ?.trim()
+      .toLowerCase()
+      .includes(pesquisa.toLowerCase());
+
+    const correspondeCategoria =
+      !categoriaSelecionada || item.category === categoriaSelecionada;
+
+    return correspondePesquisa && correspondeCategoria;
+  });
 
   function adicionarCarrinho(produto) {
-    const produtoExiste = carrinho.find((item) => item.id === produto.id);
+    const produtoExiste = carrinho.find(
+      (item) => item.id === produto.id
+    );
 
     if (produtoExiste) {
       const novoCarrinho = carrinho.map((item) => {
@@ -43,10 +73,19 @@ export function AppProvider({ children }) {
   }
 
   function removerCarrinho(id) {
-    const novaLista = carrinho.filter((produto) => produto.id !== id);
+    const novaLista = carrinho.filter(
+      (produto) => produto.id !== id
+    );
 
     setCarrinho(novaLista);
   }
+
+  useEffect(() => {
+    localStorage.setItem(
+      "produtosSalvos",
+      JSON.stringify(carrinho)
+    );
+  }, [carrinho]);
 
   useEffect(() => {
     async function carregarProdutos() {
@@ -73,7 +112,10 @@ export function AppProvider({ children }) {
         produtos: listaFiltrada,
         carrinho,
         pesquisa,
+        categorias,
+        categoriaSelecionada,
         setPesquisa,
+        setCategoriaSelecionada,
         adicionarCarrinho,
         removerCarrinho,
         postUsers,

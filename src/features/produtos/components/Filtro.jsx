@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AppContext } from "../../../app/providers/AppContext";
 
 export function Filtro({ className = "" }) {
+  
   const { pesquisa, setPesquisa } = useContext(AppContext);
 
   return (

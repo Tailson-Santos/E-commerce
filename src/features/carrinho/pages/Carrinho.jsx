@@ -5,16 +5,22 @@ import { Header } from "../../../shared/components/Header";
 import { BuscarCep } from "../../frete/components/BuscarCep";
 
 export function Carrinho() {
-  const { carrinho, removerCarrinho } = useContext(AppContext);
+  const { carrinho, removerCarrinho } =
+    useContext(AppContext);
 
-  const total = carrinho.reduce((acc, item) => {
-    return acc + item.price * item.quantidade;
-  }, 0);
+  const total = carrinho.reduce(
+    (acc, item) =>
+      acc + item.price * item.quantidade,
+    0
+  );
 
   return (
     <div className="min-h-[80vh]">
       <Header />
-      <h1 className="text-3xl font-bold mb-5">Meu Carrinho</h1>
+
+      <h1 className="text-3xl font-bold mb-5">
+        Meu Carrinho
+      </h1>
 
       <div className="flex flex-col gap-4">
         {carrinho.map((item) => (
@@ -39,22 +45,29 @@ export function Carrinho() {
               />
 
               <div>
-                <p className="font-bold">{item.title}</p>
+                <p className="font-bold">
+                  {item.title}
+                </p>
 
-                <p className="text-green-600 font-bold">R$ {item.price}</p>
+                <p className="text-green-600 font-bold">
+                  R$ {item.price}
+                </p>
 
                 <p className="text-sm text-gray-500">
                   Quantidade: {item.quantidade}
                 </p>
 
                 <p className="font-semibold">
-                  Subtotal: R$ {(item.price * item.quantidade).toFixed(2)}
+                  Subtotal: R${" "}
+                  {(item.price * item.quantidade).toFixed(2)}
                 </p>
               </div>
             </div>
 
             <button
-              onClick={() => removerCarrinho(item.id)}
+              onClick={() =>
+                removerCarrinho(item.id)
+              }
               className="
                 bg-red-600
                 text-white
@@ -75,24 +88,22 @@ export function Carrinho() {
         <div className="m-2 mt-5 text-2xl font-bold">
           Total: R$ {total.toFixed(2)}
         </div>
-        <div>
-          <button
-            className="
-              m-2
-              flex-1
-              bg-green-700
-              text-white
-              p-2
-              rounded-lg
-              hover:bg-green-800
-              transition
-              font-medium
-              cursor-pointer
-            "
-          >
-            Finalizar Compra
-          </button>
-        </div>
+
+        <button
+          className="
+            m-2
+            bg-green-700
+            text-white
+            p-2
+            rounded-lg
+            hover:bg-green-800
+            transition
+            font-medium
+            cursor-pointer
+          "
+        >
+          Finalizar Compra
+        </button>
       </div>
 
       <div className="flex">
