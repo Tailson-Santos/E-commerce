@@ -10,6 +10,8 @@ import { Carrinho } from "../features/carrinho/pages/Carrinho";
 import { Login } from "../features/autenticacao/pages/Login";
 import { Cadastro } from "../features/autenticacao/pages/Cadastro";
 
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <AppProvider>
@@ -22,6 +24,12 @@ function App() {
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        theme="light"
+      />
 
       <Footer />
     </AppProvider>

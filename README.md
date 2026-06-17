@@ -6,6 +6,7 @@ Projeto de e-commerce desenvolvido com React, Vite e Tailwind CSS. A aplicacao s
 
 - Listagem de produtos consumidos da Fake Store API
 - Busca de produtos por nome
+- Filtro de produtos por categoria
 - Pagina de detalhes para cada produto
 - Adicao de produtos ao carrinho
 - Controle de quantidade no carrinho
@@ -14,6 +15,7 @@ Projeto de e-commerce desenvolvido com React, Vite e Tailwind CSS. A aplicacao s
 - Telas de login e cadastro
 - Menu responsivo para dispositivos moveis
 - Interface estilizada com Tailwind CSS
+- Persistir o carrinho no localStorage
 
 ## Tecnologias utilizadas
 
@@ -85,13 +87,8 @@ Durante o desenvolvimento deste projeto, foram praticados conceitos como compone
 ## Melhorias futuras
 
 - Implementar autenticacao completa no login
-- Persistir o carrinho no localStorage
 - Melhorar a validacao dos formularios
-- Adicionar filtro funcional por categoria
 - Criar mensagens de sucesso e erro para o usuario
-- Adicionar testes automatizados
 - Fazer deploy da aplicacao
 
-## Autor
 
-Desenvolvido por Tailson Santos.

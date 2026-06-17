@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
 
 import {
   getUsers,
@@ -70,6 +72,7 @@ export function AppProvider({ children }) {
         },
       ]);
     }
+    toast.success(`${produto.title} adicionado ao carrinho!`)
   }
 
   function removerCarrinho(id) {

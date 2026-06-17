@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+
+
 import { AppContext } from "../../../app/providers/AppContext";
 
 export function Card({ produto }) {
   const { adicionarCarrinho } = useContext(AppContext);
-
+ 
   const {
     title: nome,
     price: preco,

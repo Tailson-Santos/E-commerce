@@ -26,7 +26,7 @@ export function Footer() {
 
           <div className="flex gap-4 mt-4 text-2xl">
             <a
-              href="https://github.com"
+              href="https://github.com/Tailson-Santos"
               target="_blank"
               rel="noreferrer"
               className="hover:scale-110 transition"
