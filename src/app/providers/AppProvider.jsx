@@ -11,6 +11,7 @@ import { Loading } from "../../shared/components/Loading";
 import { AppContext } from "./AppContext";
 
 export function AppProvider({ children }) {
+  const [frete, setFrete] = useState(0);
   const [produtos, setProduto] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -123,6 +124,8 @@ export function AppProvider({ children }) {
         removerCarrinho,
         postUsers,
         getUsers,
+        frete,
+        setFrete,
       }}
     >
       {children}

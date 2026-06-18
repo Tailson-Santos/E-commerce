@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import {SelectFrete} from "./SelectFrete";
 import { buscarCep } from "../services/fetchApiCep";
 
 export function BuscarCep() {
@@ -65,6 +65,7 @@ export function BuscarCep() {
                 <span className="font-semibold">UF:</span> {endereco.uf}
               </p>
             </div>
+            <SelectFrete/>
           </div>
         )}
       </div>
