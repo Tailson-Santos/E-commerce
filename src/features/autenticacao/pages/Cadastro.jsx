@@ -1,14 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
-import { AppContext } from "../../../app/providers/AppContext";
 import { Banner } from "../../../shared/components/Banner";
+import { cadastrar } from "../services/auth";
 
 export function Cadastro() {
-  const { postUsers } = useContext(AppContext);
-
   const [form, setForm] = useState({
-    login: "",
+    email: "",
     senha: "",
   });
 
@@ -16,16 +15,21 @@ export function Cadastro() {
     e.preventDefault();
 
     try {
-      if (!form.login || !form.senha) return;
+      if (!form.email || !form.senha) {
+        toast.warn("Preencha email e senha.");
+        return;
+      }
 
-      await postUsers(form);
+      await cadastrar(form.email, form.senha);
 
       setForm({
-        login: "",
+        email: "",
         senha: "",
       });
+
+      toast.success("Cadastro feito! Verifique seu email para confirmar a conta.");
     } catch (error) {
-      console.error(error);
+      toast.error(error.message);
     }
   }
 
@@ -51,21 +55,21 @@ export function Cadastro() {
         <h1 className="text-3xl font-bold mb-5">Cadastro</h1>
 
         <div className="flex flex-col w-full max-w-sm">
-          <label htmlFor="login" className="mb-1">
-            Login
+          <label htmlFor="email" className="mb-1">
+            Email
           </label>
 
           <input
             onChange={(e) =>
               setForm({
                 ...form,
-                login: e.target.value,
+                email: e.target.value,
               })
             }
-            value={form.login}
-            type="text"
-            id="login"
-            placeholder="Digite seu login"
+            value={form.email}
+            type="email"
+            id="email"
+            placeholder="Digite seu email"
             className="
               border
               p-3

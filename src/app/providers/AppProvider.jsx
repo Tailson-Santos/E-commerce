@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-
-import {
-  getUsers,
-  postUsers,
-} from "../../features/autenticacao/services/CRUD";
 import { fetchApi } from "../../features/produtos/services/fetchApiProdutos";
 import { Loading } from "../../shared/components/Loading";
 import { AppContext } from "./AppContext";
@@ -122,8 +117,6 @@ export function AppProvider({ children }) {
         setCategoriaSelecionada,
         adicionarCarrinho,
         removerCarrinho,
-        postUsers,
-        getUsers,
         frete,
         setFrete,
       }}

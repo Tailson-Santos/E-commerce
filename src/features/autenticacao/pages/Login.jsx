@@ -1,13 +1,44 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { Banner } from "../../../shared/components/Banner";
+import { login } from "../services/auth";
 
 export function Login() {
+  const [form, setForm] = useState({
+    email: "",
+    senha: "",
+  });
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      if (!form.email || !form.senha) {
+        toast.warn("Preencha email e senha.");
+        return;
+      }
+
+      await login(form.email, form.senha);
+
+      setForm({
+        email: "",
+        senha: "",
+      });
+
+      toast.success("Login realizado!");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       <Banner />
 
       <form
+        onSubmit={handleSubmit}
         className="
           w-full
           md:w-1/2
@@ -24,14 +55,21 @@ export function Login() {
         <h1 className="text-3xl font-bold mb-5">Login</h1>
 
         <div className="flex flex-col w-full max-w-sm">
-          <label htmlFor="login" className="mb-1">
-            Login
+          <label htmlFor="email" className="mb-1">
+            Email
           </label>
 
           <input
-            type="text"
-            id="login"
-            placeholder="Digite seu login"
+            onChange={(e) =>
+              setForm({
+                ...form,
+                email: e.target.value,
+              })
+            }
+            value={form.email}
+            type="email"
+            id="email"
+            placeholder="Digite seu email"
             className="
               border
               p-3
@@ -48,6 +86,13 @@ export function Login() {
           </label>
 
           <input
+            onChange={(e) =>
+              setForm({
+                ...form,
+                senha: e.target.value,
+              })
+            }
+            value={form.senha}
             type="password"
             id="senha"
             placeholder="Digite sua senha"
