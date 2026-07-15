@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { Banner } from "../../../shared/components/Banner";
 import { login } from "../services/auth";
 
 export function Login() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
     senha: "",
@@ -28,6 +29,7 @@ export function Login() {
       });
 
       toast.success("Login realizado!");
+      navigate("/");
     } catch (error) {
       toast.error(error.message);
     }

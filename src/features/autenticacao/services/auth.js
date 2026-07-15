@@ -1,9 +1,14 @@
 import { supabase } from "../../../services/supabase";
 
-export async function cadastrar(email, senha) {
+export async function cadastrar(email, senha, nome) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password: senha,
+    options: {
+      data: {
+        nome: nome,
+      },
+    },
   });
 
   if (error) throw error;

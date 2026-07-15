@@ -16,7 +16,7 @@ export function BuscarCep() {
   }
 
   return (
-    <div className=" flex items-center justify-center p-1 ">
+    <div className=" flex items-center justify-center p-1">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-2">
         <h1 className="text-2xl font-bold text-center mb-1">
           Calcular Frete

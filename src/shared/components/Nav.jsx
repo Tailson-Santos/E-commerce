@@ -6,7 +6,7 @@ import { AppContext } from "../../app/providers/AppContext";
 export function Nav() {
   const [aberto, setAberto] = useState(false);
 
-  const { carrinho } = useContext(AppContext);
+  const { carrinho, user, profile, logout } = useContext(AppContext);
 
   const quantidadeTotal = carrinho.reduce((acc, item) => {
     return acc + item.quantidade;
@@ -19,9 +19,24 @@ export function Nav() {
       </button>
 
       <div className="hidden md:flex gap-5 items-center">
-        <Link to="/login">
-          <span className="material-symbols-outlined">person</span>
-        </Link>
+        {user ? (
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-semibold text-gray-700">
+              Olá, {profile?.nome || user.email?.split("@")[0]}
+            </span>
+            <button
+              onClick={logout}
+              className="text-red-600 hover:text-red-800 transition cursor-pointer flex items-center"
+              title="Sair"
+            >
+              <span className="material-symbols-outlined">logout</span>
+            </button>
+          </div>
+        ) : (
+          <Link to="/login" title="Fazer Login">
+            <span className="material-symbols-outlined">person</span>
+          </Link>
+        )}
 
         <Link to="/">
           <span className="material-symbols-outlined">home</span>
@@ -69,13 +84,32 @@ export function Nav() {
             z-50
           "
         >
+          {user && (
+            <span className="text-xs font-semibold text-gray-500 border-b pb-2">
+              Olá, {profile?.nome || user.email?.split("@")[0]}
+            </span>
+          )}
+
           <Link to="/" onClick={() => setAberto(false)}>
             <span className="material-symbols-outlined">home</span>
           </Link>
 
-          <Link to="/login" onClick={() => setAberto(false)}>
-            <span className="material-symbols-outlined">person</span>
-          </Link>
+          {user ? (
+            <button
+              onClick={() => {
+                logout();
+                setAberto(false);
+              }}
+              className="text-red-600 hover:text-red-800 transition cursor-pointer flex items-center gap-1"
+            >
+              <span className="material-symbols-outlined">logout</span>
+              <span className="text-sm">Sair</span>
+            </button>
+          ) : (
+            <Link to="/login" onClick={() => setAberto(false)}>
+              <span className="material-symbols-outlined">person</span>
+            </Link>
+          )}
 
           <Link
             to="/carrinho"
